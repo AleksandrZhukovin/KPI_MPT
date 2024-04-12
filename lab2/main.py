@@ -1,4 +1,5 @@
 import string
+from sys import stdin, stderr, stdout, exit
 
 
 def decoder(text: str) -> str:
@@ -14,9 +15,15 @@ def decoder(text: str) -> str:
         elif i in string.digits or i in string.whitespace or i in string.punctuation:
             decoded += i
         else:
+            stderr.write('String must contain only Latin alphabet, digits and special characters\n')
             raise ValueError('String must contain only Latin alphabet, digits and special characters')
     return decoded
 
 
 if __name__ == '__main__':
-    print(f'Decoded text is: {decoder(input("Enter encoded text: "))}')
+    try:
+        stdout.write(f'Decoded text is: {decoder(stdin.readline())}\n')
+    except:
+        exit(1)
+    else:
+        exit(0)
