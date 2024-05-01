@@ -1,0 +1,24 @@
+name: Run tests in Docker
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+    IMAGE_NAME: lua-memory-tests
+    CONTAINER_NAME: lua-memory-tests-container
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build -t $IMAGE_NAME -f lab3/Dockerfile .
+    - name: Run the container
+      run: docker run --memory 4g --name $CONTAINER_NAME $IMAGE_NAME

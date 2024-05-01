@@ -1,4 +1,5 @@
 import string
+from sys import stdin
 
 
 def decoder(text: str) -> str:
@@ -19,4 +20,5 @@ def decoder(text: str) -> str:
 
 
 if __name__ == '__main__':
-    print(f'Decoded text is: {decoder(input("Enter encoded text: "))}')
+    # print(stdin.readline())
+    print(f'Decoded text is: {decoder(input(stdin.readline()))}')
