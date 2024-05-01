@@ -7,7 +7,7 @@ COPY . .
 
 RUN luarocks install busted && luarocks install luassert
 
-CMD["busted", "garbage_collector_test.lua"]
-CMD["busted", "heap_test.lua"]
-CMD["busted", "reference_types_test.lua"]
-CMD["busted", "value_types_test.lua"]
+CMD ["busted", "garbage_collector_test.lua"]
+CMD ["busted", "heap_test.lua"]
+CMD ["busted", "reference_types_test.lua"]
+CMD ["busted", "value_types_test.lua"]
