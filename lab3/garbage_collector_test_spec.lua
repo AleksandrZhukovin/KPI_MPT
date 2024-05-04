@@ -3,7 +3,6 @@ local assert = require("luassert")
 
 describe("Garbage Collector Test", function()
     it("Should collect garbage and reduce memory usage", function()
-        local memory_usage_before = collectgarbage("count")
 
         for i = 1, 1000 do
             local data = {}
@@ -12,8 +11,12 @@ describe("Garbage Collector Test", function()
             end
         end
 
-        local memory_usage_after = collectgarbage("count")
+        local memory_usage_before = collectgarbage('count')
 
-        assert.is_less_than(memory_usage_after, memory_usage_before)
+        data = nil
+
+        collectgarbage()
+
+        assert.is_true(collectgarbage('count') < memory_usage_before)
     end)
 end)
