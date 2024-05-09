@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <h4>Add post</h4>
+        <input type="text" name="title" placeholder="Type title here...">
+        <button hx-post="/" hx-include="[name='title']" hx-target="#posts">Send</button>
+    </div>
+    <div id="posts">
+        {% for post in data %}
+            <p><b>Post {{ post.id }}:</b> {{ post.title }}. <i>({{ post.created_at.strftime('%d.%m.%Y %H:%M:%S') }})</i></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
