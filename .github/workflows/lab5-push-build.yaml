@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build and push the image
+      - name: Login
         run: docker login --username AleksandrZhukovin --password ${{ secrets.PASSWORD }}
-             docker build -t ghcr.io/aleksandrzhukovin/lab5 -f lab5/Dockerfile .
-             docker push ghcr.io/aleksandrzhukovin/lab5
+      - name: Build container
+        run: docker build -t ghcr.io/aleksandrzhukovin/lab5 -f lab5/Dockerfile .
+      - name: Push container
+        run: docker push ghcr.io/aleksandrzhukovin/lab5
