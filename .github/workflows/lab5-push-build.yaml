@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Login
-        run: docker login --username AleksandrZhukovin --password ${{ secrets.PASSWORD }}
+        run: docker login ghcr.io --username AleksandrZhukovin --password ${{ secrets.PASSWORD }}
       - name: Build container
         run: docker build -t ghcr.io/aleksandrzhukovin/lab5 -f lab5/Dockerfile .
       - name: Push container
