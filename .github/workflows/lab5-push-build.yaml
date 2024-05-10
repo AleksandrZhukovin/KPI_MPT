@@ -15,3 +15,5 @@ jobs:
         run: docker build -t ghcr.io/aleksandrzhukovin/lab5 -f lab5/Dockerfile .
       - name: Push container
         run: docker push ghcr.io/aleksandrzhukovin/lab5
+      - name: Run the container
+        run: docker run --memory 4g --name ghcr.io/aleksandrzhukovin/lab5_container ghcr.io/aleksandrzhukovin/lab5
