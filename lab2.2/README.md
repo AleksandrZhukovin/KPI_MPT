@@ -12,6 +12,6 @@ to start database.<br>
 Run `flask run` from *lab2.2* dir to start server
 
 ### Structure
-- **Model** is `Post` class in **models.py** which represents model for database table for storing posts
-- **View** is **index.html** in *templates* dir which is responsible for UI
-- **ModelView** is `IndexView` class in **views.py** which controls requests and data creation with help of `route` decorator
+- **Model** is `Model` class in **models.py** which represents db operations
+- **View** is IndexView class in **views.py** which is responsible for UI
+- **ViewModel** is `ViewModel` class in **views.py** which processes requests
